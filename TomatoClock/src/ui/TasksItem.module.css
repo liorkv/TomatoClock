@@ -1,0 +1,27 @@
+.container {
+  border-bottom: 1px solid #868e96;
+  padding: 1rem;
+}
+
+.descriptionTitle {
+  cursor: pointer;
+  font-size: 1.8rem;
+}
+
+.descriptionTitle:hover {
+  color: #868e96;
+}
+
+.disabled {
+  color: #868e96;
+  text-decoration: line-through;
+}
+
+.selected {
+  border-top: 5px solid #868e96;
+  border-bottom: 5px solid #868e96;
+}
+
+.completedPomodoros {
+  font-size: 1.4rem;
+}

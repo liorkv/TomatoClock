@@ -1,0 +1,15 @@
+.container {
+  display: flex;
+  flex-direction: row;
+  gap: 2rem;
+  font-size: 1.8rem;
+  background-color: #ffe3e3;
+  padding: 0.25rem 0.8rem;
+  border-radius: 9px;
+  color: #868e96;
+}
+
+.currentPhase {
+  font-weight: 700;
+  color: #f03e3e;
+}

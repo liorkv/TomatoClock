@@ -1,0 +1,11 @@
+20240429	10:02:59	ba141ef7-ffa1-4a63-a519-6cb32f625289	SyntaxError: Unexpected token } in JSON at position 75
+20240429	10:03:18	abeb8f41-4885-42a9-9e76-e106ce3ac56a	SyntaxError: Unexpected token } in JSON at position 77
+20240429	10:45:42	59e13ddf-c1bf-4d2f-b0c3-1e69cfc2ec79	TypeError: Cannot read properties of undefined (reading 'username')
+20240429	10:47:35	b78ccd46-e9f5-4218-bd39-98bb9977d964	SyntaxError: Unexpected token } in JSON at position 75
+20240505	21:09:56	8606dbe1-08c9-4f73-b0a6-10b280e1ce2e	Error: Not allowed by CORS
+20240505	21:10:10	4d010e92-2c6d-42b6-8f05-df403e8e5567	Error: Not allowed by CORS
+20240505	21:10:29	610566d0-1785-4536-950e-bf89f6aed4b6	Error: Not allowed by CORS
+20240505	21:10:32	3de67420-434b-4623-9873-16cc015dacff	Error: Not allowed by CORS
+20240505	21:17:18	1449299e-a6c9-46eb-a053-992029142365	Error: Not allowed by CORS
+20240505	21:17:19	11dd6fd6-e639-4d2d-a2aa-59b415ff6a63	Error: Not allowed by CORS
+20240505	21:17:39	232e2c0b-2b16-497d-811d-357018641716	Error: Not allowed by CORS

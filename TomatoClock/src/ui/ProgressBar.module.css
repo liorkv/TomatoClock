@@ -1,0 +1,12 @@
+.frame {
+  width: 100%;
+  height: 0.5rem;
+  background-color: #ffe3e3;
+  border: 1px solid #ff8787;
+}
+
+.bar {
+  background-color: #ff8787;
+  height: 100%;
+  transition: width 1s linear;
+}

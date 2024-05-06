@@ -1,0 +1,109 @@
+.container {
+  display: flex;
+  flex-direction: column;
+  gap: 2rem;
+  margin-top: 3rem;
+  max-height: 40rem;
+  overflow-y: auto;
+}
+
+.addTaskContainer {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.addTaskButton {
+  border: none;
+  background-color: white;
+  font-size: 1.5rem;
+  font-weight: 400;
+  cursor: pointer;
+  padding: 1rem 2rem;
+  border-radius: 5px;
+  background-color: #ff6b6b;
+  color: #f8f9fa;
+  transition: all 0.3s ease;
+  width: 100%;
+}
+
+.addTaskButton:hover {
+  background-color: #ff8787;
+}
+
+.addTaskButton:active {
+  background-color: #f03e3e;
+  box-shadow: 0 0 12px #ffc9c9;
+}
+
+.formContainer {
+  width: 100%;
+}
+
+.textbox {
+  border: none;
+  border-bottom: 1px solid #868e96;
+  font-size: 1.5rem;
+  padding: 1rem;
+  width: 100%;
+}
+
+.textbox:focus {
+  outline: none;
+}
+
+.textbox::placeholder {
+  color: #868e96;
+}
+
+.addButton {
+  border: none;
+  background-color: white;
+  font-size: 1.5rem;
+  font-weight: 400;
+  cursor: pointer;
+  padding: 1rem 2rem;
+  border-radius: 5px;
+  background-color: #ff6b6b;
+  color: #f8f9fa;
+  transition: all 0.3s ease;
+  width: 100%;
+}
+
+.addButton:hover {
+  background-color: #ff8787;
+}
+
+.addButton:active {
+  background-color: #f03e3e;
+  box-shadow: 0 0 12px #ffc9c9;
+}
+
+.cancelButton {
+  border: none;
+  background-color: white;
+  font-size: 1.5rem;
+  font-weight: 400;
+  cursor: pointer;
+  padding: 1rem 2rem;
+  border-radius: 5px;
+  background-color: #868e96;
+  color: #f8f9fa;
+  transition: all 0.3s ease;
+  width: 100%;
+}
+
+.cancelButton:hover {
+  background-color: #a1a8b0;
+}
+
+.cancelButton:active {
+  background-color: #6c757d;
+  box-shadow: 0 0 12px #c9cfd4;
+}
+
+.buttonsContainer {
+  margin-top: 1rem;
+  display: flex;
+  gap: 1rem;
+}

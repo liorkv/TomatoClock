@@ -1,0 +1,67 @@
+.container {
+  width: 100%;
+  padding: 2rem;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  background-color: white;
+}
+
+.buttonsContainer {
+  display: flex;
+  justify-content: space-between;
+  width: 30rem;
+  align-items: center;
+}
+
+.button {
+  border: none;
+  background-color: white;
+  font-size: 1.5rem;
+  font-weight: 400;
+  cursor: pointer;
+  padding: 1rem 2rem;
+  border-radius: 5px;
+  background-color: #ff6b6b;
+  color: #f8f9fa;
+  transition: all 0.3s ease;
+}
+
+.button:hover {
+  background-color: #ff8787;
+}
+
+.button:active {
+  background-color: #f03e3e;
+  box-shadow: 0 0 12px #ffc9c9;
+}
+
+.time {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+.time span {
+  font-size: 10rem;
+  letter-spacing: 8px;
+  font-weight: 700;
+  cursor: default;
+}
+
+.skipButton {
+  font-size: 2rem;
+  color: #ff6b6b;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.skipButton:hover {
+  color: #ff8787;
+}
+
+.skipButton:active {
+  color: #f03e3e;
+}

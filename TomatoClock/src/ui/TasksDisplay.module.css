@@ -1,0 +1,29 @@
+.container {
+  width: 100%;
+  margin-top: 4rem;
+  padding: 2rem;
+  background: white;
+}
+
+.titleContainer {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-between;
+  border-bottom: 3px solid #ff8787;
+  padding: 1rem;
+}
+
+.titleContainer h2 {
+  font-size: 2.2rem;
+}
+
+.titleContainer button {
+  border: none;
+  background-color: white;
+  cursor: pointer;
+}
+
+.iconSettings {
+  font-size: 1.8rem;
+}
