@@ -1,7 +1,7 @@
 import { BrowserRouter, Navigate, Route, Routes } from "react-router-dom";
 import AppLayout from "./ui/AppLayout";
 import Clock from "./pages/Clock";
-import Login from "./pages/Login";
+import SignInOut from "./pages/SignInOut";
 import Settings from "./pages/Settings";
 import Statistics from "./pages/Statistics";
 import { PomodoroTrackerProvider } from "./context/PomodoroTrackerProvider";
@@ -32,7 +32,7 @@ function App() {
                 <Route path="/clock" element={<Clock />} />
                 <Route path="/statistics" element={<Statistics />} />
                 <Route path="/settings" element={<Settings />} />
-                <Route path="/login" element={<Login />} />
+                <Route path="/signinout" element={<SignInOut />} />
               </Route>
             </Routes>
           </AuthProvider>

@@ -1,12 +1,23 @@
 import styles from "./Header.module.css";
 import globalStyles from "./Global.module.css";
 import { GiTomato } from "react-icons/gi";
-import { FaClock, FaChartLine, FaCogs, FaSignInAlt } from "react-icons/fa";
+import {
+  FaClock,
+  FaChartLine,
+  FaCogs,
+  FaSignInAlt,
+  FaDoorOpen,
+} from "react-icons/fa";
 import { NavLink } from "react-router-dom";
 import { useState, useEffect } from "react";
+import useAuth from "../hooks/useAuth";
 
 function Header() {
   const [isMobileView, setIsMobileView] = useState(window.innerWidth < 34 * 16);
+
+  const { auth } = useAuth();
+
+  const isNotLogged = auth?.accessToken ? false : true;
 
   useEffect(() => {
     const handleResize = () => {
@@ -38,9 +49,16 @@ function Header() {
             <NavLink to="/settings" className={styles.navLink}>
               <FaCogs />
             </NavLink>
-            <NavLink to="/login" className={styles.navLink}>
-              <FaSignInAlt />
-            </NavLink>
+            {isNotLogged ? (
+              <NavLink to="/signinout" className={styles.navLink}>
+                <FaSignInAlt />
+              </NavLink>
+            ) : (
+              <NavLink to="/" className={styles.navLink}>
+                {/* log out icon */}
+                <FaDoorOpen />
+              </NavLink>
+            )}
           </>
         ) : (
           <>
@@ -53,9 +71,15 @@ function Header() {
             <NavLink to="/settings" className={styles.navLink}>
               Settings
             </NavLink>
-            <NavLink to="/login" className={styles.navLink}>
-              Login
-            </NavLink>
+            {isNotLogged ? (
+              <NavLink to="/signinout" className={styles.navLink}>
+                Sign in / out
+              </NavLink>
+            ) : (
+              <NavLink to="/" className={styles.navLink}>
+                Logout
+              </NavLink>
+            )}
           </>
         )}
       </div>
