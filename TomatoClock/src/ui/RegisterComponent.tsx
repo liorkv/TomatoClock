@@ -1,6 +1,8 @@
 import { FC, useState } from "react";
 import styles from "./RegisterComponent.module.css";
 import globalStyles from "./Global.module.css";
+import axios from "../api/axios";
+import toast from "react-hot-toast";
 
 const RegisterComponent: FC = () => {
   const [username, setUsername] = useState<string>("");
@@ -16,6 +18,31 @@ const RegisterComponent: FC = () => {
 
   const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
+
+    try {
+      const response = await axios.post(
+        "/register",
+        JSON.stringify({ user: username, pwd: password }),
+        {
+          headers: {
+            "Content-Type": "application/json",
+          },
+        }
+      );
+
+      setUsername("");
+      setPassword("");
+
+      toast.success("Registered successfully! Please sign in", {
+        style: {
+          fontSize: "16px",
+        },
+      });
+
+      console.log(response);
+    } catch (error) {
+      console.error(error);
+    }
   };
 
   return (
