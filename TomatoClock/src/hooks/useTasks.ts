@@ -1,10 +1,17 @@
-import { getTasks } from "../services/apiTasks";
 import { useQuery } from "@tanstack/react-query";
+import useAxiosPrivate from "../hooks/useAxiosPrivate";
 
-export function useTasks(accessToken) {
+export function useTasks() {
+  const axiosPrivate = useAxiosPrivate();
+
+  const getTasks = async () => {
+    const response = await axiosPrivate.get("/task");
+    return response.data;
+  };
+
   const { isLoading, data, error } = useQuery({
     queryKey: ["tasks"],
-    queryFn: () => getTasks(accessToken),
+    queryFn: () => getTasks(),
   });
 
   return {

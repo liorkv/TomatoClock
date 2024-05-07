@@ -17,6 +17,8 @@ function Header() {
 
   const { auth } = useAuth();
 
+  console.log(auth);
+
   const isNotLogged = auth?.accessToken ? false : true;
 
   useEffect(() => {

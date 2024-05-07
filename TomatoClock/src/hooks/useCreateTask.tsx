@@ -1,8 +1,17 @@
 import { useMutation, useQueryClient } from "@tanstack/react-query";
-import { createTask as createTaskApi } from "../services/apiTasks";
+import useAxiosPrivate from "../hooks/useAxiosPrivate";
 
 export function useCreateTask() {
   const queryClient = useQueryClient();
+
+  const axiosPrivate = useAxiosPrivate();
+
+  const createTaskApi = async (description: string) => {
+    const response = await axiosPrivate.post("/task", {
+      description,
+    });
+    return response.data;
+  };
 
   const { mutate: createTask, status } = useMutation({
     mutationFn: createTaskApi,

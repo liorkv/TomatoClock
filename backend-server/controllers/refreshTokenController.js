@@ -5,7 +5,7 @@ const handleRefreshToken = async (req, res) => {
   const cookies = req.cookies;
 
   if (!cookies?.jwt) {
-    return res.senStatus(401);
+    return res.sendStatus(401);
   }
 
   const refreshToken = cookies.jwt;
@@ -34,7 +34,7 @@ const handleRefreshToken = async (req, res) => {
       { expiresIn: "1h" }
     );
 
-    res.json({ roles, accessToken });
+    res.json({ accessToken });
   });
 };
 

@@ -1,8 +1,16 @@
 import axios from "../api/axios";
 
+// const response = await axios.get("/refresh", {
+//   withCredentials: true,
+// });
+
 export async function getTasks() {
-  const response = await axios.get("/task");
-  return response.data;
+  try {
+    const response = await axios.get("/task");
+    return response.data;
+  } catch (error) {
+    console.error(error);
+  }
 }
 
 export async function createTask(description: string) {
