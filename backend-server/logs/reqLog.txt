@@ -2056,3 +2056,6 @@
 20240511	14:00:18	94ba26e6-fd83-4f38-bdf9-4a142a6e9eb2	POST	http://localhost:3000	/auth
 20240511	14:00:18	457cdfa8-cd8d-4951-a6da-bda323f4389e	OPTIONS	http://localhost:3000	/task
 20240511	14:00:18	80ed7752-e95d-48a3-a50f-db0bcd9e2548	GET	http://localhost:3000	/task
+20240511	14:01:02	0a7de118-0813-420c-b475-c5c6606ca313	OPTIONS	http://localhost:3000	/task
+20240511	14:01:02	3c34560c-2bfa-4bef-978f-c07c6570af13	GET	http://localhost:3000	/task
+20240511	14:01:02	e5369f41-d34b-4ad4-a35d-0d227aca7602	GET	http://localhost:3000	/task
