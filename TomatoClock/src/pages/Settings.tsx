@@ -1,15 +1,20 @@
 /* eslint-disable @typescript-eslint/no-unused-vars */
-import useRefreshToken from "../hooks/useRefreshToken";
+import useSettings from "../hooks/useSettings";
 import PauseClock from "../ui/PauseClock";
 
 function Settings() {
-  const refresh = useRefreshToken();
-
+  const { settings, isLoading, error } = useSettings();
   return (
     <>
       <PauseClock />
       <h1>Settings</h1>
-      <button onClick={refresh}>refresh</button>
+      <button
+        onClick={() => {
+          console.log(settings);
+        }}
+      >
+        settings
+      </button>
     </>
   );
 }

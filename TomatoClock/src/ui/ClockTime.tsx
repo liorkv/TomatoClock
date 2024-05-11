@@ -7,6 +7,8 @@ import { FaStepForward } from "react-icons/fa";
 import { usePomodoroTracker } from "../hooks/usePomodoroTracker.tsx";
 import PomodoroPhase from "./PomodoroPhase";
 import { formatTime } from "../utils/clockHelpers.ts";
+import useSettings from "../hooks/useSettings.tsx";
+import { useEffect } from "react";
 
 function ClockTime() {
   const {

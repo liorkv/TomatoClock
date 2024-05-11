@@ -51,6 +51,7 @@ app.use("/logout", require("./routes/logout"));
 app.use(verifyJWT);
 
 app.use("/task", require("./routes/task"));
+app.use("/user", require("./routes/user"));
 
 //other routes that require authentication
 

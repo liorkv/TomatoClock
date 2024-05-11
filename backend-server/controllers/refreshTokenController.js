@@ -13,7 +13,7 @@ const handleRefreshToken = async (req, res) => {
   const foundUser = await User.findOne({ refreshToken }).exec();
 
   if (!foundUser) {
-    return res.senStatus(403);
+    return res.sendStatus(403);
   }
 
   jwt.verify(refreshToken, process.env.REFRESH_TOKEN_SECRET, (err, decoded) => {

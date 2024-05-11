@@ -6,6 +6,7 @@ const useLogout = () => {
 
   const logout = async () => {
     setAuth({});
+    axios.defaults.headers.common["Authorization"] = "";
     try {
       await axios("/logout", {
         withCredentials: true,

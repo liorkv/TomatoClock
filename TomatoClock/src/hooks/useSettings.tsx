@@ -1,20 +1,24 @@
-import useLocalStorage from "./useLocalStorage";
-import { Settings } from "../types/types";
+import { useQuery } from "@tanstack/react-query";
+import useAxiosPrivate from "./useAxiosPrivate";
 
-function useSettings(): [Settings, (newSettings: Settings) => void] {
-  const initialSettings: Settings = {
-    pomodoroDuration: 1500,
-    shortBreakDuration: 300,
-    longBreakDuration: 900,
-    pomodorosPerSet: 4,
+const useSettings = () => {
+  const axiosPrivate = useAxiosPrivate();
+
+  const getSettings = async () => {
+    const response = await axiosPrivate.get("/user/settings");
+    return response.data;
   };
 
-  const [settings, setSettings] = useLocalStorage<Settings>(
-    "appSettings",
-    initialSettings
-  );
+  const { isLoading, data, error } = useQuery({
+    queryKey: ["settings"],
+    queryFn: () => getSettings(),
+  });
 
-  return [settings, setSettings];
-}
+  return {
+    settings: data,
+    isLoading,
+    error,
+  };
+};
 
 export default useSettings;

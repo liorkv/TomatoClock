@@ -4,10 +4,10 @@ import { playRingSound } from "../utils/audioUtils";
 import { PomodoroPhase } from "../Constants/constants.ts";
 import { TimePercentage } from "../utils/clockHelpers.ts";
 import { PomodoroTrackerContextType } from "../types/types.ts";
-import useSettings from "../hooks/useSettings.tsx";
-import { useIncrementTaskPomodoros } from "../hooks/useIncrementTaskPomodoros.tsx";
+
 import axios from "../api/axios.ts";
 import { useQueryClient } from "@tanstack/react-query";
+import useLocalStorage from "../hooks/useLocalStorage.tsx";
 
 const PomodoroTrackerContext = createContext<PomodoroTrackerContextType>({
   selectedTaskId: null,
@@ -24,10 +24,22 @@ const PomodoroTrackerContext = createContext<PomodoroTrackerContextType>({
   pomodoroDuration: 0,
   shortBreakDuration: 0,
   longBreakDuration: 0,
+  setSettings: () => {},
 });
 
 export function PomodoroTrackerProvider({ children }) {
-  const [settings, setSettings] = useSettings();
+  const initialSettings = {
+    pomodoroDuration: 25, // Default values
+    shortBreakDuration: 5,
+    longBreakDuration: 15,
+    pomodorosPerSet: 4,
+  };
+
+  // Initialize settings state using useLocalStorage
+  const [settings, setSettings] = useLocalStorage(
+    "pomodoroSettings",
+    initialSettings
+  );
 
   const [selectedTaskId, setSelectedTaskId] = useState<number | null>(null);
   const [timeRemaining, setTimeRemaining] = useState<number>(
@@ -42,8 +54,6 @@ export function PomodoroTrackerProvider({ children }) {
   const [totalPomodorosCompleted, setTotalPomodorosCompleted] =
     useState<number>(0);
   const [timePercentage, setTimePercentage] = useState<number>(0);
-
-  const incrementTaskPomodoros = useIncrementTaskPomodoros();
 
   const queryClient = useQueryClient();
 
@@ -127,20 +137,6 @@ export function PomodoroTrackerProvider({ children }) {
     setIsActive(false);
   };
 
-  // const updateTaskPomodoros = function (taskId: number) {
-  //   const updatedTasks = tasks.map((task) => {
-  //     if (Number(task.id) === taskId) {
-  //       return {
-  //         ...task,
-  //         completedPomodoros: task.completedPomodoros + 1,
-  //       };
-  //     }
-  //     return task;
-  //   });
-
-  //   // setTasks(updatedTasks);
-  // };
-
   const startTimer = useCallback(() => {
     setIsActive(true);
   }, []);
@@ -188,6 +184,7 @@ export function PomodoroTrackerProvider({ children }) {
         pomodoroDuration: settings.pomodoroDuration,
         shortBreakDuration: settings.shortBreakDuration,
         longBreakDuration: settings.longBreakDuration,
+        setSettings,
       }}
     >
       {children}

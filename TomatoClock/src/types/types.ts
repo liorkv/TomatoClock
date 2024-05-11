@@ -13,6 +13,7 @@ export type PomodoroTrackerContextType = {
   pomodoroDuration: number;
   shortBreakDuration: number;
   longBreakDuration: number;
+  setSettings;
 };
 
 export type Task = {
