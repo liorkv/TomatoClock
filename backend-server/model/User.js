@@ -19,6 +19,18 @@ const userSchema = new Schema({
     required: true,
   },
   refreshToken: String,
+  pomodoroTime: {
+    type: Number,
+    default: 25,
+  },
+  shortBreakTime: {
+    type: Number,
+    default: 5,
+  },
+  longBreakTime: {
+    type: Number,
+    default: 15,
+  },
 });
 
 module.exports = mongoose.model("User", userSchema);

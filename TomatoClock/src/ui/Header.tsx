@@ -11,13 +11,14 @@ import {
 import { NavLink } from "react-router-dom";
 import { useState, useEffect } from "react";
 import useAuth from "../hooks/useAuth";
+import useLogout from "../hooks/useLogout";
 
 function Header() {
   const [isMobileView, setIsMobileView] = useState(window.innerWidth < 34 * 16);
 
   const { auth } = useAuth();
 
-  console.log(auth);
+  const logout = useLogout();
 
   const isNotLogged = auth?.accessToken ? false : true;
 
@@ -56,7 +57,7 @@ function Header() {
                 <FaSignInAlt />
               </NavLink>
             ) : (
-              <NavLink to="/" className={styles.navLink}>
+              <NavLink to="/" className={styles.navLink} onClick={logout}>
                 {/* log out icon */}
                 <FaDoorOpen />
               </NavLink>
@@ -78,7 +79,7 @@ function Header() {
                 Sign in / out
               </NavLink>
             ) : (
-              <NavLink to="/" className={styles.navLink}>
+              <NavLink to="/" className={styles.navLink} onClick={logout}>
                 Logout
               </NavLink>
             )}

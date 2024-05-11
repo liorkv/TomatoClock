@@ -1,10 +1,12 @@
 import { FC, useState } from "react";
 import { TasksItemType } from "../types/types";
 import styles from "./TasksItem.module.css";
+import useDeleteTask from "../hooks/useDeleteTask";
 
 const TasksItem: FC<TasksItemType> = ({ task, isSelected, onTaskSelect }) => {
   const { description, completedPomodoros, _id, disableTask } = task;
   const [isDisabled, setIsDisabled] = useState<boolean>(disableTask);
+  const deleteTask = useDeleteTask();
 
   const handleChooseChange = () => {
     onTaskSelect(_id);
@@ -31,6 +33,7 @@ const TasksItem: FC<TasksItemType> = ({ task, isSelected, onTaskSelect }) => {
       <p className={styles.completedPomodoros}>
         Completed Pomodoros: {completedPomodoros}
       </p>
+      <button onClick={() => deleteTask(_id)}>DETELE</button>
     </div>
   );
 };
